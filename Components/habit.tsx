@@ -12,7 +12,7 @@ import {
 function Habit (){
   return (
     <View>
-      <Text>DAX IS SO CUTE AND I WANT TO TOUCH HIS BUM</Text>
+      <Text>DAX IS SO CUTE AND I WANT TO TOUCH HIS BUM. Thats gross</Text>
     </View>
   )
 }
