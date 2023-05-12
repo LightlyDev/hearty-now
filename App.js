@@ -17,6 +17,8 @@ import {
   View,
 } from 'react-native';
 
+import Habit from './Components/habit';
+
 import {
   Colors,
   DebugInstructions,
@@ -72,6 +74,8 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
+        <Habit />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
