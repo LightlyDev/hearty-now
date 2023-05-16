@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+//import SQLite from 'react-native-sqlite-storage';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -57,8 +58,25 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
+const testDB = db => {
+  db.transaction(tx => {
+    tx.executeSql('SELECT * from tables', [], (tx, results) => {
+      console.log(results);
+    });
+  });
+}
+
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const SQLite = require('react-native-sqlite-storage');
+  //SQLite.enablePromise(true);
+  const db = SQLite.openDatabase({
+    name: 'testDB', 
+    location: 'default',
+  },
+  () => { testDB(db) } ,
+  () => { console.log('Error occurred') });
+  testDB(db);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
